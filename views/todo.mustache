@@ -38,12 +38,13 @@
 
         <h1>TODOoostill BRoah</h1>
         <ul class="listaTodos">
-        <form class="" action="/results" method="post">
+
 
         {{#todos}}
             {{^completion}}
             <li>
               {{name}}
+              <form class="" action="/results/{{id}}" method="post">
               <button type="submit" name="markAsComplete">Click to Complete</button>
             </li>
             {{/completion}}

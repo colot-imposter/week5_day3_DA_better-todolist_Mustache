@@ -51,7 +51,6 @@ const todoListArray = [{
 const completArray = []
 
 app.use(bodyParser.json())
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
@@ -71,17 +70,27 @@ app.get('/', function(req, res) {
 })
 
 
-// function seanTodo(index) {
-//   todos[index].completed = !todos[index].completed;
-// }
 
-// app.post("/results", (req, res) => {
-//   // push todo onto complete, pop that todo
-//   seanTodo(req.params.id);
-//    console.log(req.params.id);
-//    res.redirect('/');
-// })
+
+
+function seanTodo(i) {
+  todoListArray[i].completion = !todoListArray[i].completion;
+}
+
+app.post("/results/:id", (req, res) => {
+  // push todo onto complete, pop that todo
+  // console.log(todoListArray);
+  seanTodo(req.params.id);
+  //  console.log(req.params.id);
+   res.redirect('/');
+ })
 app.post('/newTodo', function(req, res){
+  req.checkBody('WhatagooataDah', 'DO nothing?? thats fine, you can do nothing. Then say youre going to do nothing...or is that too much for you to do???').notEmpty();
+  let error = validationErrors()
+
+  if(error)
+  {res.redirect('')}
+  else{
   // console.log(req.body);
   let neewbs = {}
   console.log(req.body.WhatagooataDah)
@@ -91,7 +100,7 @@ app.post('/newTodo', function(req, res){
   todoListArray.push(neewbs)
   console.log(todoListArray);
   res.redirect('/')
-}
+}}
 )
 
 app.listen(3000, function() {
