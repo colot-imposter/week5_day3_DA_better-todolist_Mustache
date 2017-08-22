@@ -1,0 +1,46 @@
+{    'name': 'Learn Express French',
+    'completion': false,
+    'id': '0'
+  }
+  {
+    'name': 'Learn Node Basics',
+    'completion': false,
+    'id': '1'
+  }
+  {
+    'name': 'Learn Express Basics',
+    'completion': false,
+    'id': '2'
+  } {
+    'name': 'Learn Mustache',
+    'completion': false,
+    'id': '3'
+  } {
+    'name': 'Learn HTML forms with Express',
+    'completion': true,
+    'id': '4'
+  } {
+    'name': 'Learn about Authentication',
+    'completion': true,
+    'id': '5'
+  } {
+    'name': 'Learn how to connect to PostgreSQL',
+    'completion': true,
+    'id': '6'
+  } {
+    'name': 'Learn how to connect to PostSQL from Node',
+    'completion': true,
+    'id': '7'
+  } {
+    'name': 'Learn how to create databases',
+    'completion': true,
+    'id': '8'
+  } {
+    'name': 'Learn SQL',
+    'completion': true,
+    'id': '8'
+  } {
+    'name': 'Learn how to Sequalize',
+    'completion': true,
+    'id': '9'
+  }

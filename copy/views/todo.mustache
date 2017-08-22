@@ -1,0 +1,73 @@
+//mongodb--add to list works ---working on mark ass completion
+//https://github.com/colot-imposter/week5_day3_DA_better-todolist_Mustache.git
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Mustache Activity</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <style type="text/css">
+    .todo-list {
+      list-style-type: none;
+      padding-left: 0.5em;
+    }
+
+    .todo-list li {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <h1>TODOs BRoah, Like Wendy?</h1>
+        <form class="" action="/newTodo" method="post">
+          <input type="text" name="WhatagooataDah" value="" placeholder="WhatagooataDah?">
+          <input type="submit" name="WhatagooataDahButtton" value="Submit">
+        </form>
+
+        <!-- {{#error}}{{msg}}{{/error}} -->
+
+        <h1>TODOoostill BRoah</h1>
+        {{#todos}}
+            {{^completion}}
+              <form class="" action="/{{id}}" method="post">
+                <p>{{name}}
+              <input type="submit" name="markAsComplete">Click to Complete</button>
+            </p></form>
+            {{/completion}}
+
+
+
+        {{/todos}}
+        <h2>Done Dood</h2>
+        {{#todos}}
+        {{#completion}}
+            <p>
+              {{name}}
+            </p>
+            {{/completion}}
+            <br>
+        {{/todos}}
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<!-- Latest compiled and minified JavaScript -->
