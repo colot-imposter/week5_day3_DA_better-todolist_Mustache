@@ -6,6 +6,11 @@ const mustacheExpress = require('mustache-express');
 const app = express();
 
 const todoListArray = [{
+    'name': 'Learn Express French',
+    'completion': false,
+    'id': '0'
+  },
+  {
     'name': 'Learn Node Basics',
     'completion': false,
     'id': '1'
@@ -69,20 +74,6 @@ app.get('/', function(req, res) {
   res.render('todo', {todos: todoListArray})
 })
 
-
-function seanTodo(id) {
-  for (var i = 0; i < todoListArray.length; i++) {
-    if (id===todoListArray[i].id){
-      todoListArray[i].completion=true
-    }
-  }
-}
-
-app.post("/results/:id", (req, res) => {
-  seanTodo(req.params.id);
-  //  console.log(req.params.id);
-  res.redirect('/');
-})
 app.post('/newTodo', function(req, res) {
 //   req.checkBody('WhatagooataDah', 'DO nothing?? thats fine, you can do nothing. Then say youre going to do nothing...or is that too much for you to do???').notEmpty();
 //   let error = req.validationErrors()
@@ -94,15 +85,41 @@ app.post('/newTodo', function(req, res) {
 //   } else {
     // console.log(req.body);
     let neewbs = {}
-    console.log(req.body.WhatagooataDah)
+    // console.log(req.body.WhatagooataDah)
     neewbs.name = req.body.WhatagooataDah
     neewbs.completion = false
     neewbs.id = todoListArray.length
     todoListArray.push(neewbs)
-    console.log(todoListArray);
     res.render('todo', {todos: todoListArray})
   //}
 })
+
+
+ //   }
+ // }
+
+function move(i) {
+todoListArray[i].completion = true;
+}
+
+app.post('/:id', function(req, res) {
+
+move(req.params.id)
+res.redirect('/')
+
+})
+//   let id = parseInt(req.params.id)
+//      for (var i = 0; i < todoListArray.length; i++)
+//      {
+//           if (id === todoListArray.id)
+//           {
+//         todoListArray[i].completion=true
+//       }
+//   res.redirect('/');
+// }
+// })
+
+
 
 app.listen(3000, function() {
   console.log('Successfully started express application!');
